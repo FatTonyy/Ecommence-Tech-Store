@@ -12,7 +12,7 @@ export default function Featured() {
         <Title title="Featured products" center="true" />
 
         {/* products */}
-        <div className="row">
+        <div className="row my-5">
           <ProductConsumer>
             {value => {
               const { featuredProducts } = value;
