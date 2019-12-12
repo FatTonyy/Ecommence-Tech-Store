@@ -12,7 +12,7 @@ export default function Products() {
         return (
           <section className="py-5">
             <div className="container">
-              {/* title */}
+              {/* title  product section*/}
               <Title center title="our products" />
 
               {/* Products */}
