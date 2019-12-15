@@ -63,7 +63,7 @@ const ProductWrapper = styled.div`
   }
 
   .card:hover .card-img-top {
-    transform: scale(1.15);
+    transform: scale(1.1);
     opacity: 0.2;
   }
 
