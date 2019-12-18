@@ -39,6 +39,9 @@ body {
   border: none;
   transition: var(--mainTransition);
 }
+.cart-icon {
+  cursor: pointer;
+}
 
 .main-link:hover {
   background: var(--darkGrey);

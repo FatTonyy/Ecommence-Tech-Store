@@ -23,7 +23,7 @@ export default function CartList() {
                   {cart.map(item => (
                     <CartItem
                       key={item.id}
-                      CartItem={item}
+                      cartItem={item}
                       increment={increment}
                       decrement={decrement}
                       removeItem={removeItem}
