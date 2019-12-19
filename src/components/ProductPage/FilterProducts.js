@@ -43,6 +43,7 @@ export default function FilterProducts() {
                   />
                 </div>
                 {/* end of text search */}
+
                 {/* category search */}
                 <div>
                   <label htmlFor="company">company</label>
