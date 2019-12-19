@@ -272,8 +272,39 @@ class ProductProvider extends Component {
     );
   };
 
+  // ** sortData functionality
   sortData = () => {
-    console.log("sortedData");
+    // destructuring
+    const { storeProducts, price, company, shipping, search } = this.state;
+    let tempProducts = [...storeProducts];
+
+    let tempPrice = parseInt(price);
+
+    // *** filtering based on price ****
+    tempProducts = tempProducts.filter(item => item.price <= tempPrice);
+
+    // *** filtering based on company ****
+    if (company !== "all") {
+      tempProducts = tempProducts.filter(item => item.company === company);
+    }
+
+    // *** filtering based on free shipping ****
+    if (shipping) {
+      tempProducts = tempProducts.filter(item => item.freeShipping === true);
+    }
+
+    // *** filtering based on search ****
+    if (search.length > 0) {
+      tempProducts = tempProducts.filter(item => {
+        let tempSearch = search.toLowerCase();
+        let tempTitle = item.title.toLowerCase().slice(0, search.length);
+        if (tempSearch === tempTitle) {
+          return item;
+        }
+      });
+    }
+
+    this.setState({ filteredProducts: tempProducts });
   };
 
   render() {
