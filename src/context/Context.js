@@ -24,7 +24,13 @@ class ProductProvider extends Component {
     filteredProducts: [],
     featuredProducts: [],
     singleProduct: {},
-    loading: true
+    loading: true,
+    search: "",
+    price: 0,
+    min: 0,
+    max: 0,
+    company: "all",
+    shipping: false
   };
 
   componentDidMount() {
@@ -43,6 +49,10 @@ class ProductProvider extends Component {
     //? Featured products
     let featuredProducts = storeProducts.filter(item => item.featured === true);
 
+    // get max price
+    let maxPrice = Math.max(...storeProducts.map(item => item.price));
+    console.log(maxPrice);
+
     this.setState(
       {
         storeProducts: storeProducts,
@@ -50,7 +60,8 @@ class ProductProvider extends Component {
         featuredProducts,
         cart: this.getStorageCart(),
         singleProduct: this.getStorageProduct(),
-        loading: false
+        loading: false,
+        max: maxPrice
       },
       () => {
         this.addTotals();
@@ -248,6 +259,13 @@ class ProductProvider extends Component {
     );
   };
 
+  // handle Filtering
+  handleChange = e => {
+    console.log(e);
+  };
+
+  sortData = () => {};
+
   render() {
     // TODO: note you can pass the value as an object
     return (
@@ -263,7 +281,8 @@ class ProductProvider extends Component {
           increment: this.increment,
           decrement: this.decrement,
           removeItem: this.removeItem,
-          clearCart: this.clearCart
+          clearCart: this.clearCart,
+          handleChange: this.handleChange
         }}
       >
         {this.props.children}
