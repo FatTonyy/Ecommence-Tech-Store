@@ -261,10 +261,20 @@ class ProductProvider extends Component {
 
   // handle Filtering
   handleChange = e => {
-    console.log(e);
+    const name = e.target.name;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    this.setState(
+      {
+        [name]: value
+      },
+      this.sortData
+    );
   };
 
-  sortData = () => {};
+  sortData = () => {
+    console.log("sortedData");
+  };
 
   render() {
     // TODO: note you can pass the value as an object
