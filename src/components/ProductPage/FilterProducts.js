@@ -82,7 +82,7 @@ export default function FilterProducts() {
                     name="shipping"
                     id="shipping"
                     onChange={handleChange}
-                    value={shipping && true}
+                    checked={shipping && true}
                   />
                 </div>
                 {/* end of free shipping */}
