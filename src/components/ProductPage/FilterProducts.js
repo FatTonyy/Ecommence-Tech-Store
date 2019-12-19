@@ -17,6 +17,15 @@ export default function FilterProducts() {
           storeProducts
         } = value;
 
+        // ! functionality to display options of company products
+        let companies = new Set();
+        companies.add("all");
+        for (let product in storeProducts) {
+          companies.add(storeProducts[product]["company"]);
+        }
+
+        companies = [...companies];
+
         return (
           <div className="row my-5">
             <div className="col-10 mx-auto">
@@ -44,10 +53,18 @@ export default function FilterProducts() {
                     onChange={handleChange}
                     value={company}
                   >
-                    <option value="all">all</option>
+                    {/* <option value="all">all</option>
                     <option value="all">htc</option>
                     <option value="all">fuji</option>
-                    <option value="all">apple</option>
+                    <option value="all">apple</option> */}
+
+                    {companies.map((company, index) => {
+                      return (
+                        <option key={index} value={company}>
+                          {company}
+                        </option>
+                      );
+                    })}
                   </select>
                 </div>
                 {/* end of category search */}
