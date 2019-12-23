@@ -60,6 +60,7 @@ const ProductWrapper = styled.div`
 
   .card-img-top {
     transition: var(--mainTransition);
+    padding: 2rem;
   }
 
   .card:hover .card-img-top {
