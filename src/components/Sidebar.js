@@ -39,6 +39,7 @@ const SideWrapper = styled.nav`
   left: 0;
   width: 100%;
   height: 100%;
+  padding-left: 0.7rem;
   background: var(--mainGrey);
   z-index: 1;
   border-right: 4px solid var(--primaryColor);
